@@ -1,6 +1,21 @@
 import 'package:flutter/material.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    return HomePageState();
+  }
+}
+
+class HomePageState extends State<HomePage> {
+  Color miColor = Colors.pinkAccent;
+
+  void cambiarColor() {
+    setState(() {
+      miColor = Colors.lime;
+    });
+  }
+
   void presionar() {
     print("Presione el boton");
   }
@@ -28,7 +43,7 @@ class HomePage extends StatelessWidget {
             Container(
               height: 80,
               width: double.infinity,
-              color: Colors.pinkAccent,
+              color: miColor,
               padding: const EdgeInsets.all(10),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -37,19 +52,19 @@ class HomePage extends StatelessWidget {
                     color: Colors.black,
                     textColor: Colors.white,
                     child: Text("Boton2"),
-                    onPressed: presionar,
+                    onPressed: cambiarColor,
                   ),
                   RaisedButton(
                     color: Colors.black,
                     textColor: Colors.white,
                     child: Text("Boton3"),
-                    onPressed: presionar,
+                    onPressed: cambiarColor,
                   ),
                   RaisedButton(
                     color: Colors.black,
                     textColor: Colors.white,
                     child: Text("Boton1"),
-                    onPressed: presionar,
+                    onPressed: cambiarColor,
                   ),
                 ],
               ),
